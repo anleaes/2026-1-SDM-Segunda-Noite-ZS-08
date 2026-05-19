@@ -1,6 +1,7 @@
 from django.db import models
 from pessoas.models import Pessoa
 from django.utils import timezone
+import datetime
 
 # Create your models here.
 class Aluno(Pessoa):
@@ -15,7 +16,7 @@ class Aluno(Pessoa):
     altura = models.FloatField('Altura',  help_text='Preencha em metros (exemplo: 1.70)', blank=True, null=True)
     genero = models.CharField('Gênero', max_length=1, choices=genero_opcoes)
     objetivo = models.TextField('Objetivo do aluno', blank=True, null=True)
-    data_matricula = models.DateField('Data da matrícula', default=timezone.now)
+    data_matricula = models.DateField('Data da matrícula', default=datetime.date.today)
 
     class Meta:
         verbose_name = 'Aluno'
