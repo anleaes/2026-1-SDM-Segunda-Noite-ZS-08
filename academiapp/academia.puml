@@ -1,0 +1,138 @@
+@startuml academiaapp
+' =============================================
+' usuários
+' =============================================
+
+class Pessoa {
+  -nome: Char
+  -sobrenome: Char
+  -email: Char
+  -telefone: Char
+  -data_nascimento: Date
+  -cpf: Char
+  -foto: Image //opcional
+  +toString()
+}
+
+class Aluno {
+  -peso: Decimal
+  -altura: Decimal
+  -objetivo: Text
+  -data_matricula: Date
+  -genero: Char
+  +toString()
+}
+
+class Instrutor {
+  -cref: Char
+  -especialidade: Char
+  -salario: Decimal
+  -data_admissao: Date
+  +toString()
+}
+
+class Anamnese {
+  -ultima_atualizacao: Date
+  -problemas_cardiacos: Boolean
+  -cirurgias_recentes: Boolean
+  -alergias: Text
+  -restricoes_fisicas: Text
+  -medicamentos_em_uso: Text
+  -pressao_arterial: Char
+  -diabetes: Boolean
+  -fumante: Boolean
+  -observacoes: Text
+  +toString()
+}
+
+' =============================================
+' mensalidade
+' =============================================
+
+class PlanoMensalidade {
+  -nome: Char
+  -descricao: Text
+  -valor: Decimal
+  -duracao_dias: Integer
+  -ativo: Boolean
+  +toString()
+}
+
+' =============================================
+' treino
+' =============================================
+
+class Exercicio {
+  -nome: Char
+  -descricao: Text
+  -instrucoes: Text
+  -dificuldade: Char
+  +toString()
+}
+
+class Treino {
+  -nome: Char
+  -descricao: Text
+  -data_criacao: Date
+  -duracao_minutos: Integer
+  +toString()
+}
+
+class ItemTreino {
+  -series: Integer
+  -repeticoes: Integer
+  -carga_kg: Decimal
+  -intervalo_segundos: Integer
+  -observacoes: Text
+  +toString()
+}
+
+' =============================================
+' dieta
+' =============================================
+
+class Alimento {
+  -nome: Char
+  -calorias_por_100g: Decimal
+  -proteinas_g: Decimal
+  -carboidratos_g: Decimal
+  -gorduras_g: Decimal
+  -fibras_g: Decimal
+  +toString()
+}
+
+class PlanoAlimentar {
+  -titulo: Char
+  -descricao: Text
+  -objetivo: Char
+  -data_inicio: Date
+  -data_fim: Date
+  -calorias_diarias: Integer
+  +toString()
+}
+
+class Refeicao {
+  -nome: Char
+  -horario: DateTime
+  -descricao: Text
+  +toString()
+}
+
+class RefeicaoAlimento <<Classe associativa gerada pelo DJANGO>> {
+  -refeicao_id: ForeignKey [Refeicao]
+  -alimento_id: ForeignKey [Alimento]
+}
+
+Aluno -up-|> Pessoa : 1..1
+Instrutor -up-|> Pessoa : 1..1
+Aluno *--> Anamnese : 1..1
+Aluno *--> PlanoMensalidade : 1..n
+Aluno *--> Treino : 1..n
+Instrutor *--> Treino : 1..n
+Treino *--> ItemTreino : 1..n
+Exercicio *--> ItemTreino : 1..n
+Aluno *--> PlanoAlimentar : 1..n
+PlanoAlimentar *--> Refeicao : 1..n
+Refeicao *--> RefeicaoAlimento : 0..n
+Alimento *--> RefeicaoAlimento : 0..n
+@enduml
