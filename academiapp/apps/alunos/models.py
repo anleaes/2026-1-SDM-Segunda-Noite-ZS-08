@@ -3,7 +3,7 @@ from pessoas.models import Pessoa
 from django.utils import timezone
 
 # Create your models here.
-class Alunos(pessoa):
+class Alunos(Pessoa):
     genero_opcoes = [
         ('M', 'Masculino'),
         ('F', 'Feminino'),
@@ -20,7 +20,7 @@ class Alunos(pessoa):
     class Meta:
         verbose_name = 'Aluno'
         verbose_name_plural='Alunos'
-        ordering['id']
+        ordering=['id']
     
     def __str__(self):
         return super().__str__()
