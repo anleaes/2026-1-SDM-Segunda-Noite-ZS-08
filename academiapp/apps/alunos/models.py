@@ -3,12 +3,12 @@ from pessoas.models import Pessoa
 from django.utils import timezone
 
 # Create your models here.
-class Alunos(Pessoa):
+class Aluno(Pessoa):
     genero_opcoes = [
         ('M', 'Masculino'),
         ('F', 'Feminino'),
         ('O', 'Outro'),
-        ('N/A', 'Prefiro não informar'), 
+        ('N', 'Prefiro não informar'), 
     ]
 
     peso = models.FloatField('Peso', help_text='Preencha em kg (exemplo: 70.5)', blank=True, null=True)
