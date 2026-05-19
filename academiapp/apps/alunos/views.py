@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Alunos
+from .models import Aluno
 from rest_framework import viewsets
 from .serializer import AlunoSerializer
 
