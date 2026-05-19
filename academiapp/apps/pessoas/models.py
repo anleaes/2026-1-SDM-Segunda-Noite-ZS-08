@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Person(models.Model):
+class Pessoa(models.Model):
     nome = models.CharField('Nome', max_length=50)
     sobrenome = models.CharField('Sobrenome', max_length=100) 
     email = models.CharField('E-mail', max_length=100)
