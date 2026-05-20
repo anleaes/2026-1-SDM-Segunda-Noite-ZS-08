@@ -3,3 +3,5 @@
 /apps/Pessoas/migrations/*
 /apps/Alunos/__pycache__/*
 /apps/Alunos/migrations/*
+/apps/Instrutores/__pycache__/*
+/apps/Instrutores/migrations/*
