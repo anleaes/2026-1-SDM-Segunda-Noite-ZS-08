@@ -4,7 +4,7 @@ import datetime
 
 # Create your models here.
 class Instrutor(Pessoa):
-    especialidade_opcoes:[
+    especialidade_opcoes = [
         ('MUSC', 'Musculação'),
         ('FUNC', 'Treinamento Funcional'),
         ('PILA', 'Pilates'),
