@@ -1,7 +1,7 @@
-from .models import Anamnese
+from .models import Anamneses
 from rest_framework import serializers
 
 class AnamneseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Anamnese
+        model = Anamneses
         fields = '__all__'
