@@ -7,3 +7,5 @@
 /apps/Instrutores/migrations/*
 /apps/PlanosMensalidade/__pycache__/*
 /apps/PlanosMensalidade/migrations/*
+/apps/Anamnese/__pycache__/*
+/apps/Anamnese/migrations/*
