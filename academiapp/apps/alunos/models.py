@@ -24,4 +24,4 @@ class Aluno(Pessoa):
         ordering=['id']
     
     def __str__(self):
-        return super().__str__()
+        return f"{self.nome} {self.sobrenome} - {self.cpf}"
