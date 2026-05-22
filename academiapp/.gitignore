@@ -5,3 +5,5 @@
 /apps/Alunos/migrations/*
 /apps/Instrutores/__pycache__/*
 /apps/Instrutores/migrations/*
+/apps/PlanosMensalidade/__pycache__/*
+/apps/PlanosMensalidade/migrations/*
