@@ -11,3 +11,5 @@
 /apps/Anamneses/migrations/*
 /apps/Alimentos/__pycache__/*
 /apps/Alimentos/migrations/*
+/apps/Refeicoes/__pycache__/*
+/apps/Refeicoes/migrations/*
