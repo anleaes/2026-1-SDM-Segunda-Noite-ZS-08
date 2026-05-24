@@ -1,11 +1,11 @@
 from django.db import models
 from alimentos.models import Alimento
+from planosalimentares.models import PlanoAlimentar
 
 # Create your models here.
 class Refeicao(models.Model):
     alimentos = models.ManyToManyField(Alimento, verbose_name="Alimentos da refeição")
-    #adicionar após implementar plano alimentar --> plano_alimentar = models.ForeignKey('planos.PlanoAlimentar', on_delete=models.CASCADE...)
-
+    plano_alimentar = models.ForeignKey(PlanoAlimentar,on_delete=models.CASCADE,related_name='refeicoes',verbose_name='Plano Alimentar', null=True, blank=True)
     nome = models.CharField('Nome da Refeição', max_length=50)
     horario = models.TimeField('Horário')
     descricao = models.TextField('Descrição', blank=True, null=True)
