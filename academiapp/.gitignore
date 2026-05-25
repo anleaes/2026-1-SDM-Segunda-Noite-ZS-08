@@ -17,4 +17,6 @@
 /apps/Exercicios/migrations/*
 /apps/Treinos/__pycache__/*
 /apps/Treinos/migrations/*
+/apps/ItemTreino/__pycache__/*
+/apps/ItemTreino/migrations/*
 
