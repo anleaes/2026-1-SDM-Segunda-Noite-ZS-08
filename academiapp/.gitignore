@@ -1,3 +1,4 @@
+/academiapp/pessoas/fotos
 /academiapp/__pycache__/*
 /apps/Pessoas/__pycache__/*
 /apps/Pessoas/migrations/*
@@ -19,4 +20,5 @@
 /apps/Treinos/migrations/*
 /apps/ItemTreino/__pycache__/*
 /apps/ItemTreino/migrations/*
-
+/apps/PlanosAlimentares/__pycache__/*
+/apps/PlanosAlimentares/migrations/*

@@ -1,5 +1,6 @@
 from django.db import models
 from pessoas.models import Pessoa
+from planosmensalidade.models import PlanosMensalidade
 from django.utils import timezone
 import datetime
 
@@ -17,6 +18,7 @@ class Aluno(Pessoa):
     genero = models.CharField('Gênero', max_length=1, choices=genero_opcoes)
     objetivo = models.TextField('Objetivo do aluno', blank=True, null=True)
     data_matricula = models.DateField('Data da matrícula', default=datetime.date.today)
+    plano_mensalidade = models.ForeignKey(PlanosMensalidade, on_delete=models.SET_NULL, null=True, blank=True, related_name='alunos', verbose_name='Plano de Mensalidade')
 
     class Meta:
         verbose_name = 'Aluno'

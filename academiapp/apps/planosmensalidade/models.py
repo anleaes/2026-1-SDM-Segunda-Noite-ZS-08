@@ -20,4 +20,4 @@ class PlanosMensalidade(models.Model):
         verbose_name_plural = "Planos de Mensalidade"
 
     def __str__(self):
-        return f"{self.nome} - {self.get_duracao_plano_display()}"
+        return f"{self.nome} - {self.get_duracao_dias_display()}"
