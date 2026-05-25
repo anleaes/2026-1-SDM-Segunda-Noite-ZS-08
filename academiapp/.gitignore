@@ -15,3 +15,6 @@
 /apps/Refeicoes/migrations/*
 /apps/Exercicios/__pycache__/*
 /apps/Exercicios/migrations/*
+/apps/Treinos/__pycache__/*
+/apps/Treinos/migrations/*
+
