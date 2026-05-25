@@ -15,4 +15,4 @@ class Treino(models.Model):
     duracao_minutos = models.IntegerField()
 
     def __str__(self):
-        return f"{self.nome} - {self.aluno.pessoa.nome}"
+        return f"{self.nome} - {self.aluno.nome}"

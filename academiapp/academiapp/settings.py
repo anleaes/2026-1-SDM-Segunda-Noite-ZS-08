@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'refeicoes.apps.RefeicoesConfig',
     'exercicios.apps.ExerciciosConfig',
     'treinos.apps.TreinosConfig',
+    'itemtreino.apps.ItemtreinoConfig',
     'planosalimentares.apps.PlanosalimentaresConfig',
 ]
 
