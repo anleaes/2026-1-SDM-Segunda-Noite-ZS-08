@@ -1,7 +1,7 @@
-from .models import Itemtreino
+from .models import ItemTreino
 from rest_framework import serializers
     
-class ItemtreinoSerializer(serializers.ModelSerializer):
+class ItemTreinoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Itemtreino
+        model = ItemTreino
         fields = '__all__'

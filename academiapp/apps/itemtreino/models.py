@@ -6,7 +6,6 @@ from treinos.models import Treino
 
 # Create your models here.
 class ItemTreino(models.Model):
-    # Cria a relação N:N manual contendo os atributos específicos descritos no UML
     treino = models.ForeignKey(Treino, on_delete=models.CASCADE, related_name='itens')
     exercicio = models.ForeignKey(Exercicio, on_delete=models.CASCADE, related_name='itens_treino')
     
