@@ -14,5 +14,7 @@
 /apps/Alimentos/migrations/*
 /apps/Refeicoes/__pycache__/*
 /apps/Refeicoes/migrations/*
+/apps/Exercicios/__pycache__/*
+/apps/Exercicios/migrations/*
 /apps/PlanosAlimentares/__pycache__/*
 /apps/PlanosAlimentares/migrations/*

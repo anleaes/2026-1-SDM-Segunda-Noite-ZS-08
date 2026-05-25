@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'anamneses.apps.AnamnesesConfig',
     'alimentos.apps.AlimentosConfig',
     'refeicoes.apps.RefeicoesConfig',
+    'exercicios.apps.ExerciciosConfig',
     'planosalimentares.apps.PlanosalimentaresConfig',
 ]
 
