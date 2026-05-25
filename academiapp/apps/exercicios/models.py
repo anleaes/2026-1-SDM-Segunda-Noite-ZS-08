@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 class Exercicio(models.Model):
     DIFICULDADE_CHOICES = [
-        ('B', 'Iniciante'),
-        ('I', 'Intermediário'),
-        ('A', 'Avançado'),
+        ('F', 'Fácil'),
+        ('M', 'Médio'),
+        ('D', 'Díficil'),
     ]
 
     nome = models.CharField(
@@ -25,7 +25,7 @@ class Exercicio(models.Model):
     dificuldade = models.CharField(
         max_length=1, 
         choices=DIFICULDADE_CHOICES, 
-        default='B', 
+        default='F', 
         verbose_name="Grau de Dificuldade"
     )
 
