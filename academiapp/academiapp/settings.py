@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'pessoas.apps.PessoasConfig',
+    'alunos.apps.AlunosConfig',
+    'planosmensalidade.apps.PlanosMensalidadeConfig',
 ]
 
 MIDDLEWARE = [
