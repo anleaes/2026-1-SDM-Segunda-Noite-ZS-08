@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'pessoas.apps.PessoasConfig',
     'alunos.apps.AlunosConfig',
-    'planosmensalidade.apps.PlanosMensalidadeConfig',
+    'planosmensalidade.apps.PlanosmensalidadeConfig',
 ]
 
 MIDDLEWARE = [
