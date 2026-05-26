@@ -17,4 +17,4 @@ class Aluno(Pessoa):
     genero = models.CharField('Gênero', max_length=1, choices=genero_opcoes)
     objetivo = models.TextField('Objetivo do aluno', blank=True, null=True)
     data_matricula = models.DateField('Data da matrícula', default=datetime.date.today)
-    plano = models.ForeignKey('planosmensalidade.PlanosMensalidade', on_delete=models.CASCADE)
+    plano = models.ForeignKey('planosmensalidade.PlanosMensalidade', on_delete=models.CASCADE, db_column='PLANO_MENSALIDADE_ID')
