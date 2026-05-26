@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'pessoas.apps.PessoasConfig',
     'alunos.apps.AlunosConfig',
+    'instrutores.apps.InstrutoresConfig',
     'planosmensalidade.apps.PlanosmensalidadeConfig',
 ]
 
