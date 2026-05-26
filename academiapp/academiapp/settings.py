@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'academiapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-         'NAME': config('DB_NAME'),
-         'USER': config('DB_USER'),
-         'PASSWORD': config('DB_PASSWORD'),   
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),   
     }
 }
 
