@@ -9,3 +9,11 @@ class Pessoa(models.Model):
     data_nascimento = models.DateField('Data de nascimento', auto_now=False, auto_now_add=False)
     cpf = models.CharField('CPF', max_length=11, unique=True)
     foto = models.ImageField('Foto', upload_to='pessoas/fotos', blank=True,null=True)
+
+    class Meta:
+    verbose_name = 'Pessoa'
+    verbose_name_plural = 'Pessoas'
+    ordering =['nome']
+
+    def __str__(self):
+        return f'{self.nome} {self.sobrenome}'
