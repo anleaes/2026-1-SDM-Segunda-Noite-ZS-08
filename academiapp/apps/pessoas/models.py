@@ -11,9 +11,9 @@ class Pessoa(models.Model):
     foto = models.ImageField('Foto', upload_to='pessoas/fotos', blank=True,null=True)
 
     class Meta:
-    verbose_name = 'Pessoa'
-    verbose_name_plural = 'Pessoas'
-    ordering =['nome']
+        verbose_name = 'Pessoa'
+        verbose_name_plural = 'Pessoas'
+        ordering =['nome']
 
     def __str__(self):
         return f'{self.nome} {self.sobrenome}'
