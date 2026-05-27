@@ -14,3 +14,11 @@ class Anamnese(models.Model):
     diabetes = models.BooleanField(default=False, verbose_name="Diabetes")
     fumante = models.BooleanField(default=False, verbose_name="Fumante")
     observacoes = models.TextField(blank=True, null=True, verbose_name="Observações")
+
+    class Meta:
+        verbose_name = "Anamnese"
+        verbose_name_plural = "Anamneses"
+        ordering = ['-ultima_atualizacao']
+
+    def __str__(self):
+        return f"Anamnese do aluno: {self.aluno}"
