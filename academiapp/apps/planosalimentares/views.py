@@ -5,4 +5,7 @@ from .serializer import PlanoAlimentarSerializer
 
 
 class PlanoAlimentarViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = PlanoAlimentar.objects.all()
+    serializer_class = PlanoAlimentarSerializer  
+    
+    
