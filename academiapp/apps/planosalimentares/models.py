@@ -7,3 +7,11 @@ class PlanoAlimentar(models.Model):
     data_inicio = models.DateField()
     data_fim = models.DateField()
     calorias_diarias = models.IntegerField()
+    
+    class Meta:
+        db_table = 'planos_alimentares'
+        verbose_name = 'Plano Alimentar'
+        verbose_name_plural = 'Planos Alimentares'
+
+    def __str__(self):
+        return self.titulo
