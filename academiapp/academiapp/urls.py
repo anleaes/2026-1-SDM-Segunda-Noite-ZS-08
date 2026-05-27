@@ -24,4 +24,5 @@ urlpatterns = [
     path('instrutores/', include('instrutores.urls', namespace='instrutores')),
     path('planosmensalidade/', include('planosmensalidade.urls', namespace='planosMensalidade')),
     path('anamneses/', include('anamneses.urls', namespace='anamneses')),
+    path('alimentos/', include('alimentos.urls', namespace='alimentos')),
 ]
