@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
-
 class AnamnesesConfig(AppConfig):
     name = 'anamneses'
+    verbose_name = 'Ficha Médica'
