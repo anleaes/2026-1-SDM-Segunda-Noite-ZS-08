@@ -25,6 +25,6 @@ urlpatterns = [
     path('planosmensalidade/', include('planosmensalidade.urls', namespace='planosMensalidade')),
     path('anamneses/', include('anamneses.urls', namespace='anamneses')),
     path('alimentos/', include('alimentos.urls', namespace='alimentos')),
-    #path('planosalimentares/', include('planosalimentares.urls', namespace='planosalimentares')),
+    path('planosalimentares/', include('planosalimentares.urls', namespace='planosalimentares')),
     #path('refeicoes/', include('refeicoes.urls', namespace='refeicoes')),
 ]
