@@ -10,3 +10,11 @@ class PlanoAlimentar(models.Model):
     data_inicio = models.DateField('Data de Início')
     data_fim = models.DateField('Data de Fim',blank=True, null=True)
     calorias_diarias = models.IntegerField('Calorias Diárias')
+    
+    class Meta: 
+        verbose_name = 'Plano Alimentar'
+        verbose_name_plural = 'Planos Alimentares'
+        ordering = ['-data_inicio']
+
+    def __str__(self):
+        return f"{self.titulo} - {self.aluno}"
