@@ -8,3 +8,12 @@ class Refeicao(models.Model):
     descricao = models.TextField()
     plano_alimentar = models.ForeignKey(PlanoAlimentar, on_delete=models.CASCADE)
     alimentos = models.ManyToManyField(Alimento)
+    
+    
+class Meta:
+        db_table = 'refeicoes'
+        verbose_name = 'Refeição'
+        verbose_name_plural = 'Refeições'
+
+def __str__(self):
+        return self.nome
