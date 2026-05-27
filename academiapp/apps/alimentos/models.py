@@ -8,3 +8,11 @@ class Alimento(models.Model):
     carboidratos_g = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Carboidratos (g)")
     gorduras_g = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Gorduras (g)")
     fibras_g = models.DecimalField(max_digits=5, decimal_places=2, default=0.0, verbose_name="Fibras (g)")
+
+    class Meta:
+        verbose_name = "Alimento"
+        verbose_name_plural = "Alimentos"
+        ordering = ['nome']
+
+    def __str__(self):
+        return self.nome
