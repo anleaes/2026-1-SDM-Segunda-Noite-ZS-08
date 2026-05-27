@@ -5,4 +5,5 @@ from .serializer import RefeicaoSerializer
 
 # Create your views here.
 class RefeicaoViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = Refeicao.objects.all()
+    serializer_class = RefeicaoSerializer
