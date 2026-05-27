@@ -5,4 +5,5 @@ from .serializer import ExercicioSerializer
 
 # Create your views here.
 class ExercicioViewSet(viewsets.ModelViewSet):
-    pass
+    queryset = Exercicio.objects.all()
+    serializer_class = ExercicioSerializer  
