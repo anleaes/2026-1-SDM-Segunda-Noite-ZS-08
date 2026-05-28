@@ -5,4 +5,6 @@ from .serializer import TreinoSerializer
 
 # Create your views here.
 class TreinoViewSet(viewsets.ModelViewSet):
-    pass
+
+    queryset = Treino.objects.all()
+    serializer_class = TreinoSerializer  
