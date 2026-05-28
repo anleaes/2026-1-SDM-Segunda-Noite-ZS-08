@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Instrutores - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'instrutores:add_instrutor' %}">Cadastro de novo instrutor</a>
+<br />
+<br />
+<b>Lista de Instrutores</b>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Dados do Instrutor</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for instrutor in instrutores %}
+        <tr>
+            <td>{{ instrutor.id }}</td>
+            <td>{{ instrutor }}</td>
+            <td>
+                <a href="{% url 'instrutores:edit_instrutor' instrutor.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'instrutores:delete_instrutor' instrutor.id %}">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
