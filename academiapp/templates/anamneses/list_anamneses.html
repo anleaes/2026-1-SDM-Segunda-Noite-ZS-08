@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Anamneses - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'anamnese:add_anamnese' %}">Cadastro de nova anamnese</a>
+<br />
+<br />
+<b>Lista de Anamneses</b>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Dados da Anamnese</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for anamnese in anamneses %}
+        <tr>
+            <td>{{ anamnese.id }}</td>
+            <td>{{ anamnese }}</td>
+            <td>
+                <a href="{% url 'anamnese:edit_anamnese' anamnese.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'anamnese:delete_anamnese' anamnese.id %}">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
