@@ -22,3 +22,5 @@
 /apps/ItemTreino/migrations/*
 /apps/PlanosAlimentares/__pycache__/*
 /apps/PlanosAlimentares/migrations/*
+/apps/core/__pycache__/*
+/apps/core/migrations/*
