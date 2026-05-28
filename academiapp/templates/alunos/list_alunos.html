@@ -39,6 +39,7 @@
             <td>{{ aluno.get_genero_display }}</td>
             <td>{{ aluno.plano }}</td>
             <td>{{ aluno.data_matricula }}</td>
+            <td>
                 <a href="{% url 'alunos:edit_aluno' aluno.id %}">Editar</a>
             </td>
             <td>
