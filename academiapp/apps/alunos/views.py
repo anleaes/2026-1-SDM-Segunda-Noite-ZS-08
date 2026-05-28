@@ -16,9 +16,7 @@ def add_aluno(request):
     if request.method == 'POST':
         form = AlunoForm(request.POST)
         if form.is_valid():
-            f = form.save(commit=False)
-            f.save()
-            form.save_m2m() # Garante o salvamento de relacionamentos ManyToMany, se houver
+            form.save()
             return redirect('alunos:list_alunos')
     form = AlunoForm()
     context['form'] = form
