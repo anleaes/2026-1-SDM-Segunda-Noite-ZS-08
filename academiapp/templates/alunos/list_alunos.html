@@ -39,10 +39,11 @@
             <td>{{ aluno.get_genero_display }}</td>
             <td>{{ aluno.plano }}</td>
             <td>{{ aluno.data_matricula }}</td>
-                <a href="{% url 'clients:edit_client' client.id %}">Editar</a>
+            <td>
+                <a href="{% url 'alunos:edit_aluno' aluno.id %}">Editar</a>
             </td>
             <td>
-                <a href="{% url 'clients:delete_client' client.id %}">Excluir</a>
+                <a href="{% url 'alunos:delete_aluno' aluno.id %}">Excluir</a>
             </td>
         </tr> 
     {% endfor %}
