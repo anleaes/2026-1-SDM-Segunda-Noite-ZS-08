@@ -65,3 +65,5 @@ class Treino(models.Model):
     
     
     
+    
+    
