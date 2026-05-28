@@ -5,3 +5,4 @@ class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
         exclude = ()
+        
