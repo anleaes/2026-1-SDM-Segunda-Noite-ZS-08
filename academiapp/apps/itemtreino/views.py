@@ -5,4 +5,6 @@ from .serializer import  ItemTreinoSerializer
 
 # Create your views here.
 class ItemTreinoViewSet(viewsets.ModelViewSet):
-    pass
+
+    queryset = ItemTreino.objects.all()
+    serializer_class = ItemTreinoSerializer 
