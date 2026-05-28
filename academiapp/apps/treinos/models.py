@@ -70,3 +70,5 @@ class Treino(models.Model):
     
     
     
+    
+    
