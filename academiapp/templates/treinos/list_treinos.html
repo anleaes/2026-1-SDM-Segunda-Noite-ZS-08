@@ -1,28 +1,31 @@
 {% extends 'base.html' %}
-{% block title %} Lista de Treinos - {{ block.super }} {% endblock title %}
 {% block body %}
 <br />
-    <a href="{% url 'treinos:add_treino' %}">Cadastro de novo treino</a>
-<br /><br />
 <b>Lista de Treinos</b>
 <table border="1">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nome do Treino</th>
-            <th>Editar</th>
-            <th>Excluir</th>
+            <th>Nome</th>
+            <th>Aluno</th>
+            <th>Instrutor</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         {% for treino in treinos %}
-            <tr>
-                <td>{{ treino.id }}</td>
-                <td>{{ treino.nome }}</td>
-                <td><a href="{% url 'treinos:edit_treino' treino.id %}">Editar</a></td>
-                <td><a href="{% url 'treinos:delete_treino' treino.id %}">Excluir</a></td>
-            </tr> 
+        <tr>
+            <td>{{ treino.id }}</td>
+            <td>{{ treino.nome }}</td>
+            <td>{{ treino.aluno.nome }}</td>
+            <td>{{ treino.instrutor.nome }}</td>
+            <td>
+                <a href="{% url 'treinos:view_treino' treino.id %}">Ver Detalhes</a>
+                |
+                <a href="{% url 'treinos:delete_treino' treino.id %}">Excluir</a>
+            </td>
+        </tr>
         {% endfor %}
     </tbody>
 </table>
-{% endblock body %}
+{% endblock %}
