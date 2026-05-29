@@ -2,7 +2,7 @@
 
 {% block title %}
 
-    Adicionar Refeicoes - {{ block.super }}
+    Adicionar Refeicao - {{ block.super }}
 
 {% endblock title %}
 
@@ -12,31 +12,31 @@
 <b>Cadastro de Refeicao</b>
 <br />
 <br />
-<form action="" method="POST" enctype="multipart/form-data"> 
+<form action="" method="POST">
 {% csrf_token %}
-    <label>Alimentos da refeicao</label>
-    <br />
-    {{ form.alimentos}}
+    <label>Alimentos da Refeicao</label>
+    <br />   
+    {{ form.alimentos }}
     <br />
     <br />
     <label>Plano Alimentar</label>
-    <br />
-    {{ form.plano_alimentar}}
-    <br />
-    <br />
-    <label>Nome da Refeição</label>
-    <br />
-    {{ form.nome}}
+    <br />    
+    {{ form.plano_alimentar }}
     <br />
     <br />
-    <label>Horário</label>
+    <label>Nome da Refeicao</label>
+    <br />    
+    {{ form.nome }}
     <br />
+    <br />
+    <label>Horario</label>
+    <br />    
     {{ form.horario }}
     <br />
     <br />
-    <label>Descrição</label>
-    <br />
-    {{ form.descricao }}
+    <label>Descricao</label>
+    <br />   
+    {{ form.descricao}}
     <br />
     <br />
     <button type="submit">Salvar</button>       
