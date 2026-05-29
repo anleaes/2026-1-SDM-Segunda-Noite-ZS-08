@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-
     Lista de Refeicoes - {{ block.super }}
-
 {% endblock title %}
 
 {% block body %}
@@ -12,7 +10,7 @@
     <a href="{% url 'refeicoes:add_refeicao' %}">Cadastro de nova Refeicao</a>
 <br />
 <br />
-<b>Lista de Refeicoes</b></h5>
+<b>Lista de Refeicoes</b>
 <table border="1">
     <thead>
     <tr>
@@ -22,31 +20,34 @@
         <th>Nome</th>
         <th>Horario</th>
         <th>Descricao</th>
-        <th></th>
-        <th></th>
+        <th>Editar</th>
+        <th>Excluir</th>
     </tr>
     </thead>
     <tbody>
     {% for refeicao in refeicoes %}
         <tr>
             <td>{{ refeicao.id }}</td>
-            <td>{{ refeicao.alimentos}}</td>
-            <td>{{ refeicao.plano_alimentar }}</td>
-            <td>{{ refeicao.nome }}</td>
-            <td>{{ refeicao.horario }}</td>
-            <td>{{ refeicao.descricao }}</td>
+            
             <td>
                 <ul>
-                {% for alimento in refeicao.alimento.all %}
-                    <li>{{ alimento.name }}</li>
+                {% for alimento in refeicao.alimentos.all %}
+                    <li>{{ alimento.nome }}</li>
                 {% empty %}
                     <li>Sem alimentos</li>
                 {% endfor %}
                 </ul>
             </td>
+            
+            <td>{{ refeicao.plano_alimentar }}</td>
+            <td>{{ refeicao.nome }}</td>
+            <td>{{ refeicao.horario }}</td>
+            <td>{{ refeicao.descricao }}</td>
+            
             <td>
                 <a href="{% url 'refeicoes:edit_refeicao' refeicao.id %}">Editar</a>
             </td>
+            
             <td>
                 <a href="{% url 'refeicoes:delete_refeicao' refeicao.id %}">Excluir</a>
             </td>
@@ -54,6 +55,5 @@
     {% endfor %}
     </tbody>
 </table>
-
 
 {% endblock body %}
