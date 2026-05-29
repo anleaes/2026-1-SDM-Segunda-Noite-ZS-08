@@ -36,7 +36,7 @@ def list_refeicoes(request):
     return render(request, template_name, context)
 
 
-def edit_refeicoes(request, id_refeicao):
+def edit_refeicao(request, id_refeicao):
     template_name = 'refeicoes/add_refeicao.html'
     context = {}
     refeicao = get_object_or_404(Refeicao, id=id_refeicao)
