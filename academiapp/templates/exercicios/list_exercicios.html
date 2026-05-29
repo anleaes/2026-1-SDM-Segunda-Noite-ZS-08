@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Lista de Exercícios - {{ block.super }} {% endblock title %}
+{% block body %}
+<br />
+    <a href="{% url 'exercicios:add_exercicio' %}">Cadastro de novo exercício</a>
+<br /><br />
+<b>Lista de Exercícios</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome do Exercício</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for exercicio in exercicios %}
+            <tr>
+                <td>{{ exercicio.id }}</td>
+                <td>{{ exercicio.nome }}</td>
+                <td><a href="{% url 'exercicios:edit_exercicio' exercicio.id %}">Editar</a></td>
+                <td><a href="{% url 'exercicios:delete_exercicio' exercicio.id %}">Excluir</a></td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}
