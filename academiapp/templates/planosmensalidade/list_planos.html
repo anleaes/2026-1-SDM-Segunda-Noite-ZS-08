@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Planos - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'planosmensalidade:add_plano' %}">Cadastro de novo plano</a>
+<br />
+<br />
+<b>Lista de Planos</b>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome do Plano</th>
+        <th>Valor</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for plano in planos %}
+        <tr>
+            <td>{{ plano.id }}</td>
+            <td>{{ plano.nome }}</td>
+            <td>R$ {{ plano.valor|floatformat:2 }}</td>
+            <td>
+                <a href="{% url 'planosmensalidade:edit_plano' plano.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'planosmensalidade:delete_plano' plano.id %}">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}

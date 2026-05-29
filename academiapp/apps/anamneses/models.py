@@ -21,4 +21,4 @@ class Anamnese(models.Model):
         ordering = ['-ultima_atualizacao']
 
     def __str__(self):
-        return f"Anamnese do aluno: {self.aluno}"
+        return f"Ficha médica do(a) aluno(a): {self.aluno}"

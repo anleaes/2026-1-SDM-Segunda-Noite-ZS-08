@@ -18,6 +18,7 @@ class PlanosMensalidade(models.Model):
     class Meta:
         verbose_name = "Plano de Mensalidade"
         verbose_name_plural = "Planos de Mensalidade"
+        ordering = ['valor']
 
     def __str__(self):
         return f"{self.nome} - {self.get_duracao_dias_display()}"
