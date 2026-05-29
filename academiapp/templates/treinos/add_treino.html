@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Adicionar treino - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de novo treino</b>
+<br />
+<br />
+<form action="" method="POST">
+{% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <br />
+    <button type="submit">Salvar</button>       
+</form>
+
+{% endblock body %}
