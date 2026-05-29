@@ -29,6 +29,7 @@ def list_alimentos(request):
     context = {
         'alimentos': alimentos
     }
+    return render(request, template_name, context)
 
 def edit_alimento(request, id_alimento):
     template_name = 'alimentos/add_alimento.html'
