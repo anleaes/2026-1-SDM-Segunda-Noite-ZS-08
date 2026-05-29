@@ -9,43 +9,51 @@
 {% block body %}
 
 <br />
-    <a href="{% url 'refeicoes:add_product' %}">Cadastro de nova refeicao</a>
+    <a href="{% url 'refeicoes:add_refeicao' %}">Cadastro de nova Refeicao</a>
 <br />
 <br />
-<b>Lista de Refeicoes</b>
+<b>Lista de Refeicoes</b></h5>
 <table border="1">
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>Alimentos da Refeicao</th>
-            <th>Plano Alimetar</th>
-            <th>Nome da Refeicao</th>
-            <th>Horario</th>
-            <th>Descricao</th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>ID</th>
+        <th>Alimentos</th>
+        <th>Plano Alimentar</th>
+        <th>Nome</th>
+        <th>Horario</th>
+        <th>Descricao</th>
+        <th></th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-        {% for refeicao in refeicoes %}
-            <tr>
-                <td>{{ refeicao.id }}</th>
-                <td>{{ refeicao.alimentos }}</td>
-                <td>{{ refeicao.plano_alimentar }}</td>
-                <td>{{ refeicao.nome }}</td>
-                <td>{{ refeicao.horario }}</td>
-                <td>{{ refeicao.descricao }}</td>
-                <td>
-                </td>
-                <td>
-                <td>
-                    <a href="{% url 'refeicoes:edit_refeicao' refeicao.id %}" >Editar</a>
-                </td>
-                <td>    
-                    <a href="{% url 'refeicoes:delete_refeicao' refeicao.id %}" >Excluir</a>
-                </td>
-            </tr> 
-        {% endfor %}
+    {% for refeicao in refeicoes %}
+        <tr>
+            <td>{{ refeicao.id }}</td>
+            <td>{{ refeicao.alimentos}}</td>
+            <td>{{ refeicao.plano_alimentar }}</td>
+            <td>{{ refeicao.nome }}</td>
+            <td>{{ refeicao.horario }}</td>
+            <td>{{ refeicao.descricao }}</td>
+            <td>
+                <ul>
+                {% for alimentos in refeicao.alimentos.all %}
+                    <li>{{ alimentos.name }}</li>
+                {% empty %}
+                    <li>Sem redes</li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <a href="{% url 'refeicoes:edit_refeicao' refeicao.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'refeicoes:delete_refeicao' refeicao.id %}">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
     </tbody>
 </table>
+
 
 {% endblock body %}
