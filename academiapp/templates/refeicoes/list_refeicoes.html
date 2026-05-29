@@ -15,9 +15,9 @@
     <thead>
     <tr>
         <th>ID</th>
+        <th>Nome</th>
         <th>Alimentos</th>
         <th>Plano Alimentar</th>
-        <th>Nome</th>
         <th>Horario</th>
         <th>Descricao</th>
         <th>Editar</th>
@@ -28,6 +28,7 @@
     {% for refeicao in refeicoes %}
         <tr>
             <td>{{ refeicao.id }}</td>
+            <td>{{ refeicao.nome }}</td>
             
             <td>
                 <ul>
@@ -40,7 +41,6 @@
             </td>
             
             <td>{{ refeicao.plano_alimentar }}</td>
-            <td>{{ refeicao.nome }}</td>
             <td>{{ refeicao.horario }}</td>
             <td>{{ refeicao.descricao }}</td>
             

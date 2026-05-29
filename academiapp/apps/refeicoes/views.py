@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from .models import Refeicao
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Refeicao, Alimento
 from rest_framework import viewsets
 from .serializers import RefeicaoSerializer
+from .forms import RefeicaoForm
 
 # Create your views here.
 class RefeicaoViewSet(viewsets.ModelViewSet):
