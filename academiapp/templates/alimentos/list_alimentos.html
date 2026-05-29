@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-
     Lista de Alimentos - {{ block.super }}
-
 {% endblock title %}
 
 {% block body %}
@@ -23,14 +21,14 @@
             <th>Carboidratos (g)</th>
             <th>Gorduras (g)</th>
             <th>Fibras (g)</th>
-            <th>Editar </th>
-            <th>Excluir </th>
+            <th>Editar</th>
+            <th>Excluir</th>
         </tr>
     </thead>
     <tbody>
         {% for alimento in alimentos %}
             <tr>
-                <th>{{ alimento.id }}</th>
+                <td>{{ alimento.id }}</td>
                 <td>{{ alimento.nome }}</td>
                 <td>{{ alimento.calorias_por_100g }}</td>
                 <td>{{ alimento.proteinas_g }}</td>
