@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Refeicao
 from rest_framework import viewsets
 from .serializers import RefeicaoSerializer
+from .forms import RefeicaoForm
 
 # Create your views here.
 class RefeicaoViewSet(viewsets.ModelViewSet):
