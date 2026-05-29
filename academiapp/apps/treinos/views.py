@@ -1,6 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from rest_framework import viewsets
+
+# Importações dos seus models
 from .models import Treino
+from itemtreino.models import ItemTreino
+from exercicios.models import Exercicio
+from alunos.models import Aluno
+from instrutores.models import Instrutor
+
 from .serializers import TreinoSerializer 
 from .forms import TreinoForm
 
@@ -101,7 +108,7 @@ def edit_exercicio_treino(request, id_exercicio):
         request.session.modified = True
     return redirect('treinos:montar_treino')
 
-    def delete_exercicio_treino(request, id_exercicio):
+def delete_exercicio_treino(request, id_exercicio):
     cart = request.session.get('treino_cart', {})
     pid = str(id_exercicio)
     if pid in cart:
@@ -110,22 +117,22 @@ def edit_exercicio_treino(request, id_exercicio):
     request.session.modified = True
     return redirect('treinos:montar_treino')
 
-    def finalizar_treino(request):
+def finalizar_treino(request):
     template_name = 'treinos/finalizar_treino.html'
     cart = request.session.get('treino_cart', {})
     alunos = Aluno.objects.all()
     instrutores = Instrutor.objects.all()
-    
+
     if request.method == 'POST':
         aluno_id = request.POST.get('aluno')
         instrutor_id = request.POST.get('instrutor')
         nome_treino = request.POST.get('nome')
         descricao = request.POST.get('descricao', '')
         duracao = request.POST.get('duracao_minutos', 60)
-        
+
         aluno = get_object_or_404(Aluno, id=aluno_id)
         instrutor = get_object_or_404(Instrutor, id=instrutor_id)
-        
+
         treino = Treino.objects.create(
             aluno=aluno,
             instrutor=instrutor,
@@ -133,7 +140,7 @@ def edit_exercicio_treino(request, id_exercicio):
             descricao=descricao,
             duracao_minutos=duracao
         )
-        
+
         for exercicio_id, item in cart.items():
             ex = get_object_or_404(Exercicio, id=exercicio_id)
             ItemTreino.objects.create(
@@ -145,6 +152,7 @@ def edit_exercicio_treino(request, id_exercicio):
                 intervalo_segundos=int(item['intervalo_segundos']),
                 observacoes=item['observacoes']
             )
+            
         request.session['treino_cart'] = {}
         request.session.modified = True
         return redirect('treinos:view_treino', id_treino=treino.id)
@@ -156,7 +164,7 @@ def edit_exercicio_treino(request, id_exercicio):
     }
     return render(request, template_name, context)
 
-    def view_treino(request, id_treino):
+def view_treino(request, id_treino):
     template_name = 'treinos/view_treino.html'
     treino = get_object_or_404(Treino, id=id_treino)
     itens = treino.itens.all()
