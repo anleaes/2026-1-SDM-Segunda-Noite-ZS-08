@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from rest_framework import viewsets
 from .models import Alimento
-from .serializers import AlimentoSerializer
+from .serializer import AlimentoSerializers
 from .forms import AlimentoForm
 
 class AlimentoViewSet(viewsets.ModelViewSet):
     queryset = Alimento.objects.all()
-    serializer_class = AlimentoSerializer
+    serializer_class = AlimentoSerializers
 
 def add_alimento(request):
     template_name = 'alimentos/add_alimento.html'
