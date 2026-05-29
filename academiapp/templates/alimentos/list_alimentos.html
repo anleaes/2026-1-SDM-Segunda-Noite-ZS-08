@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Alimentos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'alimentos:add_alimento' %}">Cadastro de novo alimento</a>
+<br />
+<br />
+<b>Lista de Alimentos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome do Alimento</th>
+            <th>Calorias por 100g (kcal)</th>
+            <th>Proteínas (g)</th>
+            <th>Carboidratos (g)</th>
+            <th>Gorduras (g)</th>
+            <th>Fibra (g)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alimento in alimentos %}
+            <tr>
+                <th>{{ alimento.id }}</th>
+                <td>{{ alimento.nome }}</td>
+                <td>{{ alimento.calorias_por_100g }}</td>
+                <td>{{ alimento.proteinas_g }}</td>
+                <td>{{ alimento.carboidratos_g }}</td>
+                <td>{{ alimento.gorduras_g }}</td>
+                <td>{{ alimento.fibra_g }}</td>
+                <td>
+                    <a href="{% url 'alimentos:edit_alimento' alimento.id %}">Editar</a>
+                </td>
+                <td>
+                    <a href="{% url 'alimentos:delete_alimento' alimento.id %}">Excluir</a>
+                </td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
