@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Refeicoes - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'refeicoes:add_product' %}">Cadastro de nova refeicao</a>
+<br />
+<br />
+<b>Lista de Refeicoes</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Alimentos da Refeicao</th>
+            <th>Plano Alimetar</th>
+            <th>Nome da Refeicao</th>
+            <th>Horario</th>
+            <th>Descricao</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for refeicao in refeicoes %}
+            <tr>
+                <td>{{ refeicao.id }}</th>
+                <td>{{ refeicao.alimentos }}</td>
+                <td>{{ refeicao.plano_alimentar }}</td>
+                <td>{{ refeicao.nome }}</td>
+                <td>{{ refeicao.horario }}</td>
+                <td>{{ refeicao.descricao }}</td>
+                <td>
+                </td>
+                <td>
+                <td>
+                    <a href="{% url 'refeicoes:edit_refeicao' refeicao.id %}" >Editar</a>
+                </td>
+                <td>    
+                    <a href="{% url 'refeicoes:delete_refeicao' refeicao.id %}" >Excluir</a>
+                </td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
