@@ -15,7 +15,8 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Dados do Plano</th>
+        <th>Nome do Plano</th>
+        <th>Valor</th>
         <th>Editar</th>
         <th>Excluir</th>
     </tr>
@@ -24,7 +25,8 @@
     {% for plano in planos %}
         <tr>
             <td>{{ plano.id }}</td>
-            <td>{{ plano }}</td>
+            <td>{{ plano.nome }}</td>
+            <td>R$ {{ plano.valor|floatformat:2 }}</td>
             <td>
                 <a href="{% url 'planosmensalidade:edit_plano' plano.id %}">Editar</a>
             </td>
