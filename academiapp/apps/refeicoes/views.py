@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Refeicao
 from rest_framework import viewsets
 from .serializers import RefeicaoSerializer
 from .forms import RefeicaoForm
@@ -11,16 +10,49 @@ class RefeicaoViewSet(viewsets.ModelViewSet):
     serializer_class = RefeicaoSerializer
 
 
-    def add_refeicao(self, request):
-        template_name = 'refeicoes/add_refeicoes.html'
-        context = {}
-        if request.method == 'POST':
-            form = RefeicaoForm(request.POST)
-            if form.is_valid():
-                f = form.save(commit=False)
-                f.save()
-                form.save_m2m()
-                return redirect('refeicoes:list_refeicoes')
-        form = RefeicaoForm()
-        context['form'] = form
-        return render(request, template_name, context)
+def add_refeicao(request):
+    template_name = 'refeicoes/add_refeicoes.html'
+    context = {}
+
+    if request.method == 'POST':
+        form = RefeicaoForm(request.POST)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.save()
+            form.save_m2m()
+            return redirect('refeicoes:list_refeicoes')
+
+    form = RefeicaoForm()
+    context['form'] = form
+    return render(request, template_name, context)
+
+
+def list_refeicoes(request):
+    template_name = 'refeicoes/list_refeicoes.html'
+    refeicoes = Refeicao.objects.prefetch_related('alimento')
+    context = {
+        'refeicoes': refeicoes,
+    }
+    return render(request, template_name, context)
+
+
+def edit_refeicoes(request, id_refeicao):
+    template_name = 'refeicoes/add_refeicoes.html'
+    context = {}
+    refeicao = get_object_or_404(Refeicao, id=id_refeicao)
+
+    if request.method == 'POST':
+        form = RefeicaoForm(request.POST, instance=refeicao)
+        if form.is_valid():
+            form.save()
+            return redirect('refeicoes:list_refeicoes')
+
+    form = RefeicaoForm(instance=refeicao)
+    context['form'] = form
+    return render(request, template_name, context)
+
+
+def delete_refeicao(request, id_refeicao):
+    refeicao = get_object_or_404(Refeicao, id=id_refeicao)
+    refeicao.delete()
+    return redirect('refeicoes:list_refeicoes')
