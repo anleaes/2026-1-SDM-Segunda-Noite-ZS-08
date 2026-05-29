@@ -37,10 +37,10 @@
             <td>{{ refeicao.descricao }}</td>
             <td>
                 <ul>
-                {% for alimento in refeicao.alimento.all %}
-                    <li>{{ alimento.name }}</li>
+                {% for alimentos in refeicao.alimentos.all %}
+                    <li>{{ alimentos.name }}</li>
                 {% empty %}
-                    <li>Sem alimentos</li>
+                    <li>Sem redes</li>
                 {% endfor %}
                 </ul>
             </td>
