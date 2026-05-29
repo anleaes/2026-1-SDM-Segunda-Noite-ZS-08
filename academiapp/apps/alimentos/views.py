@@ -8,7 +8,6 @@ class AlimentoViewSet(viewsets.ModelViewSet):
     queryset = Alimento.objects.all()
     serializer_class = AlimentoSerializers
 
-
 def add_alimento(request):
     template_name = 'alimentos/add_alimento.html'
     context = {}
@@ -29,9 +28,10 @@ def list_alimentos(request):
     context = {
         'alimentos': alimentos
     }
+    return render(request, template_name, context)
 
-    def edit_alimento(request, id_alimento):
-        template_name = 'alimentos/add_alimento.html'
+def edit_alimento(request, id_alimento):
+    template_name = 'alimentos/add_alimento.html'
     context ={}
     alimento = get_object_or_404(Alimento, id=id_alimento)
     if request.method == 'POST':
