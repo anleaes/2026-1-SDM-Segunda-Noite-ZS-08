@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} Lista de Planos Alimentares - {{ block.super }} {% endblock title %}
+{% block body %}
+<br />
+    <a href="{% url 'planosalimentares:add_planoalimentar' %}">Cadastrar novo Plano Alimentar</a>
+<br /><br />
+<b>Lista de Planos Alimentares</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Aluno</th>
+            <th>Objetivo</th>
+            <th>Início</th>
+            <th>Fim</th>
+            <th>Calorias</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for plano in planos %}
+            <tr>
+                <td>{{ plano.id }}</td>
+                <td>{{ plano.titulo }}</td>
+                <td>{{ plano.aluno.nome }}</td>
+                <td>{{ plano.objetivo }}</td>
+                <td>{{ plano.data_inicio|date:"d/m/Y" }}</td>
+                <td>{{ plano.data_fim|date:"d/m/Y"|default:"-" }}</td>
+                <td>{{ plano.calorias_diarias }} kcal</td>
+                <td><a href="{% url 'planosalimentares:edit_planoalimentar' plano.id %}">Editar</a></td>
+                <td><a href="{% url 'planosalimentares:delete_planoalimentar' plano.id %}">Excluir</a></td>
+            </tr> 
+        {% empty %}
+            <tr>
+                <td colspan="9">Nenhum plano alimentar encontrado.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}
