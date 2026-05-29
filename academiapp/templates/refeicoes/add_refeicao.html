@@ -14,6 +14,10 @@
 <br />
 <form action="" method="POST">
 {% csrf_token %}
+    <label>Nome da Refeicao</label>
+    <br />    
+    {{ form.nome }}
+    <br />
     <label>Alimentos da Refeicao</label>
     <br />   
     {{ form.alimentos }}
@@ -23,10 +27,6 @@
     <br />    
     {{ form.plano_alimentar }}
     <br />
-    <br />
-    <label>Nome da Refeicao</label>
-    <br />    
-    {{ form.nome }}
     <br />
     <br />
     <label>Horario</label>
