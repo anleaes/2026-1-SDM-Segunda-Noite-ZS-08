@@ -29,7 +29,7 @@ def add_refeicao(request):
 
 def list_refeicoes(request):
     template_name = 'refeicoes/list_refeicoes.html'
-    refeicoes = Refeicao.objects.prefetch_related('alimento')
+    refeicoes = Refeicao.objects.prefetch_related('alimentos')
     context = {
         'refeicoes': refeicoes,
     }
