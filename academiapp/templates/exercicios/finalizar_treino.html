@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+<br />
+<b>Finalizar Criação do Treino</b>
+<br /><br />
+{% if cart %}
+<form method="post">
+    {% csrf_token %}
+    <label>Nome do Treino:</label>
+    <input type="text" name="nome" required>
+    <br /><br />
+    <label>Descrição:</label>
+    <input type="text" name="descricao">
+    <br /><br />
+    <label>Duração Estimada (minutos):</label>
+    <input type="number" name="duracao_minutos" value="60" required>
+    <br /><br />
+    <label>Aluno:</label>
+    <select name="aluno" required>
+        <option value="">Selecione</option>
+        {% for aluno in alunos %}
+            <option value="{{ aluno.id }}">{{ aluno.nome }}</option>
+        {% endfor %}
+    </select>
+    <br /><br />
+    <label>Instrutor:</label>
+    <select name="instrutor" required>
+        <option value="">Selecione</option>
+        {% for instrutor in instrutores %}
+            <option value="{{ instrutor.id }}">{{ instrutor.nome }}</option>
+        {% endfor %}
+    </select>
+    <br /><br />
+    <button type="submit">Salvar Treino Completo</button>
+</form>
+{% else %}
+<b>Não há exercícios selecionados para finalizar o treino.</b>
+{% endif %}
+{% endblock %}
