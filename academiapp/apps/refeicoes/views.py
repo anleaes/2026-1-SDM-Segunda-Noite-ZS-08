@@ -11,7 +11,7 @@ class RefeicaoViewSet(viewsets.ModelViewSet):
 
 
 def add_refeicao(request):
-    template_name = 'refeicoes/add_refeicoes.html'
+    template_name = 'refeicoes/add_refeicao.html'
     context = {}
 
     if request.method == 'POST':
@@ -37,7 +37,7 @@ def list_refeicoes(request):
 
 
 def edit_refeicoes(request, id_refeicao):
-    template_name = 'refeicoes/add_refeicoes.html'
+    template_name = 'refeicoes/add_refeicao.html'
     context = {}
     refeicao = get_object_or_404(Refeicao, id=id_refeicao)
 
