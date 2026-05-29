@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+<br />
+<b>Detalhes do Treino</b>
+<br /><br />
+<b>Treino:</b> {{ treino.nome }}<br />
+<b>Aluno:</b> {{ treino.aluno.nome }}<br />
+<b>Instrutor:</b> {{ treino.instrutor.nome }}<br />
+<b>Duração:</b> {{ treino.duracao_minutos }} min<br />
+<br />
+<b>Exercícios:</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Exercício</th>
+            <th>Séries x Repetições</th>
+            <th>Carga (Kg)</th>
+            <th>Descanso (s)</th>
+            <th>Obs</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in itens %}
+        <tr>
+            <td>{{ item.exercicio.nome }}</td>
+            <td>{{ item.series }}x{{ item.repeticoes }}</td>
+            <td>{{ item.carga_kg }}</td>
+            <td>{{ item.intervalo_segundos }}</td>
+            <td>{{ item.observacoes }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br />
+<a href="{% url 'treinos:list_treinos' %}">Voltar para a Lista</a>
+{% endblock %}
