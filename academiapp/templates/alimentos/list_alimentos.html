@@ -22,7 +22,9 @@
             <th>Proteínas (g)</th>
             <th>Carboidratos (g)</th>
             <th>Gorduras (g)</th>
-            <th>Fibra (g)</th>
+            <th>Fibras (g)</th>
+            <th>Editar </th>
+            <th>Excluir </th>
         </tr>
     </thead>
     <tbody>
@@ -34,7 +36,7 @@
                 <td>{{ alimento.proteinas_g }}</td>
                 <td>{{ alimento.carboidratos_g }}</td>
                 <td>{{ alimento.gorduras_g }}</td>
-                <td>{{ alimento.fibra_g }}</td>
+                <td>{{ alimento.fibras_g }}</td>
                 <td>
                     <a href="{% url 'alimentos:edit_alimento' alimento.id %}">Editar</a>
                 </td>
