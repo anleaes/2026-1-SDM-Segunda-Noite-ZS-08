@@ -12,8 +12,6 @@ urlpatterns = [
     path('adicionar/', views.add_refeicao, name='add_refeicao'),
     path('editar/<int:id_refeicao>/', views.edit_refeicao, name='edit_refeicao'),
     path('excluir/<int:id_refeicao>/', views.delete_refeicao, name='delete_refeicao'),
-]
-
-urlpatterns = [
+    
     path('', include(router.urls) )
 ]

@@ -30,8 +30,8 @@ def list_alimentos(request):
         'alimentos': alimentos
     }
 
-    def edit_alimento(request, id_alimento):
-        template_name = 'alimentos/add_alimento.html'
+def edit_alimento(request, id_alimento):
+    template_name = 'alimentos/add_alimento.html'
     context ={}
     alimento = get_object_or_404(Alimento, id=id_alimento)
     if request.method == 'POST':
