@@ -53,6 +53,6 @@ def edit_refeicoes(request, id_refeicao):
 
 
 def delete_refeicao(request, id_refeicao):
-    refeicao = get_object_or_404(Refeicao, id=id_refeicao)
+    refeicao = Refeicao.objects.get(id=id_refeicao)
     refeicao.delete()
     return redirect('refeicoes:list_refeicoes')
