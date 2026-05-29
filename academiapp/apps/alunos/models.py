@@ -18,3 +18,11 @@ class Aluno(Pessoa):
     objetivo = models.TextField('Objetivo do aluno', blank=True, null=True)
     data_matricula = models.DateField('Data da matrícula', default=datetime.date.today)
     plano = models.ForeignKey('planosmensalidade.PlanosMensalidade', on_delete=models.CASCADE, db_column='PLANO_MENSALIDADE_ID')
+
+    class Meta:
+        verbose_name = 'Aluno'
+        verbose_name_plural='Alunos'
+        ordering=['id']
+    
+    def __str__(self):
+        return f"{self.nome} {self.sobrenome} - {self.cpf}"

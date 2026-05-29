@@ -1,14 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
+from .models import Refeicao
 from rest_framework import viewsets
 from .serializers import RefeicaoSerializer
-from .forms import RefeicaoForm
-from .models import Refeicao, Alimento
 
 # Create your views here.
 class RefeicaoViewSet(viewsets.ModelViewSet):
     queryset = Refeicao.objects.all()
     serializer_class = RefeicaoSerializer
-
 
 def add_refeicao(request):
     template_name = 'refeicoes/add_refeicao.html'
