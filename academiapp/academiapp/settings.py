@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'treinos.apps.TreinosConfig',
     'itemtreino.apps.ItemtreinoConfig',
     'core.apps.CoreConfig',
+    'contas.apps.ContasConfig',
 ]
 
 MIDDLEWARE = [
