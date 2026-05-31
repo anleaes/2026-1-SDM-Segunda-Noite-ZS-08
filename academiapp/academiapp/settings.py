@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'treinos.apps.TreinosConfig',
     'itemtreino.apps.ItemtreinoConfig',
     'core.apps.CoreConfig',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'academiapp.urls'
@@ -144,3 +145,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CORS_ALLOW_ALL_ORIGINS = True
