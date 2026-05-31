@@ -8,7 +8,8 @@
     <title>{% block title %}Academia App{% endblock title %}</title>
 </head>
 <body>
-    
+
+    {% endif %}
     {% block body %}
     {% endblock body %}
     
@@ -24,8 +25,19 @@
       <li><a href="{% url 'exercicios:list_exercicios' %}">Exercícios</a></li>
       <li><a href="{% url 'treinos:list_treinos' %}">Treinos</a></li>
     </ul>
+
+    <br />
+    Voce está logado como: {{ user.get_full_name|default:user.username }}
+    <br />
+    <a href="{% url 'contas:user_change_information' user.username %}"><button>Conta</button></a>
+    <a href="{% url 'contas:user_change_password' %}"><button>Trocar senha</button></a>
+    <a href="{% url 'contas:user_logout' %}"><button>Sair</button></a>
+    <br />
+    <br />
     
-    
+            {% if user.is_authenticated %}
+
+            
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
 </body>
 </html>
