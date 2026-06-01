@@ -35,6 +35,13 @@
         <br />
         <br />
     
+        {% else %}
+        <br><hr><br>
+        <p>Você não está logado.</p>
+        <a href="{% url 'contas:user_login' %}"><button>Entrar</button></a>
+        <br />
+        <br />
+
     {% endif %} 
             
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
