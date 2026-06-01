@@ -3,6 +3,8 @@ from .models import Aluno
 from rest_framework import viewsets
 from .serializer import AlunoSerializer
 from .forms import AlunoForm
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -10,6 +12,7 @@ class AlunoViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
 
+@login_required(login_url='/contas/login/')
 def add_aluno(request):
     template_name = 'alunos/add_aluno.html'
     context = {}
