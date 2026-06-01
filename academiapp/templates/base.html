@@ -9,34 +9,33 @@
 </head>
 <body>
 
-    {% endif %}
     {% block body %}
     {% endblock body %}
     
-    <br><hr><br><ul>
-      <li><a href="{% url 'core:home' %}">Home</a></li>
-      <li><a href="{% url 'alunos:list_alunos' %}">Alunos</a></li>
-      <li><a href="{% url 'anamnese:list_anamneses' %}">Anamneses</a></li>  
-      <li><a href="{% url 'instrutores:list_instrutores' %}">Instrutores</a></li>
-      <li><a href="{% url 'planosmensalidade:list_planos' %}">Planos mensalidade</a></li>
-      <li><a href="{% url 'alimentos:list_alimentos' %}">Alimentos</a></li>
-      <li><a href="{% url 'refeicoes:list_refeicoes' %}">Refeições</a></li>
-      <li><a href="{% url 'planosalimentares:list_planosalimentares' %}">Planos alimentares</a></li>
-      <li><a href="{% url 'exercicios:list_exercicios' %}">Exercícios</a></li>
-      <li><a href="{% url 'treinos:list_treinos' %}">Treinos</a></li>
-    </ul>
+    {% if user.is_authenticated %}
+        <br><hr><br><ul>
+            <li><a href="{% url 'core:home' %}">Home</a></li>
+            <li><a href="{% url 'alunos:list_alunos' %}">Alunos</a></li>
+            <li><a href="{% url 'anamnese:list_anamneses' %}">Anamneses</a></li>  
+            <li><a href="{% url 'instrutores:list_instrutores' %}">Instrutores</a></li>
+            <li><a href="{% url 'planosmensalidade:list_planos' %}">Planos mensalidade</a></li>
+            <li><a href="{% url 'alimentos:list_alimentos' %}">Alimentos</a></li>
+            <li><a href="{% url 'refeicoes:list_refeicoes' %}">Refeições</a></li>
+            <li><a href="{% url 'planosalimentares:list_planosalimentares' %}">Planos alimentares</a></li>
+            <li><a href="{% url 'exercicios:list_exercicios' %}">Exercícios</a></li>
+            <li><a href="{% url 'treinos:list_treinos' %}">Treinos</a></li>
+        </ul>
 
-    <br />
-    Voce está logado como: {{ user.get_full_name|default:user.username }}
-    <br />
-    <a href="{% url 'contas:user_change_information' user.username %}"><button>Conta</button></a>
-    <a href="{% url 'contas:user_change_password' %}"><button>Trocar senha</button></a>
-    <a href="{% url 'contas:user_logout' %}"><button>Sair</button></a>
-    <br />
-    <br />
+        <br />
+        Voce está logado como: {{ user.get_full_name|default:user.username }}
+        <br />
+        <a href="{% url 'contas:user_change_information' user.username %}"><button>Conta</button></a>
+        <a href="{% url 'contas:user_change_password' %}"><button>Trocar senha</button></a>
+        <a href="{% url 'contas:user_logout' %}"><button>Sair</button></a>
+        <br />
+        <br />
     
-            {% if user.is_authenticated %}
-
+    {% endif %} 
             
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
 </body>

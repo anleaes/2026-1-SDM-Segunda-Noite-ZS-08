@@ -24,3 +24,5 @@
 /apps/PlanosAlimentares/migrations/*
 /apps/core/__pycache__/*
 /apps/core/migrations/*
+/apps/contas/__pycache__/*
+/apps/contas/migrations/*
