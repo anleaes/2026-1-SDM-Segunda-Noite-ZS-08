@@ -15,5 +15,6 @@ class AnamneseSerializer(serializers.ModelSerializer):
             'fumante',
             'problemas_cardiacos', 
             'cirurgias_recentes',
-            'observacoes'
+            'observacoes',
+            'id',
         ]
